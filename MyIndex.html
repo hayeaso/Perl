@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<HTML>
+  <HEAD>
+    <TITLE>Home Page</TITLE>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="public/Appointment.css">
+    <link rel="stylesheet" href="public/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="public/bootstrap/js/bootstrap.js"></script>
+    <link type="text/css" href="public/bootstrap/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+    <script type="text/javascript" src="public/bootstrap/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="clock/dist/jquery-clockpicker.css">
+        <script type="text/javascript" src="clock/dist/bootstrap-clockpicker.min.js"></script>
+
+
+
+   </HEAD>
+
+   <BODY >
+     <div id="content" class="col-md-6 col-md-offset-3  ">
+         <div id="error">
+           errors
+         </div>
+         <div class="form-group">
+         <input type="button" value="NEW" id="new"onclick="showForm()" class="btn btn-primary form-control">
+         </div>
+         <div>
+            <form action="InsertData.cgi" id="frm" name ="myfrm">
+                      <div class="form-group">
+                         <label  id="lbl_1" for="date">Date </label>
+                         <input id="date" type="text" size="8" name="date" onchange="validateDate();" class="form-control"   data-provide="datepicker">
+                     </div>
+                     <div class="input-group clockpicker form-group">
+              	        <label for="time"id="lbl_2">Time</label>
+                        <input type="text" class="form-control" size="8"id="time"name="time" onchange="validateTimeHhMm();"readonly >
+                          <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-time">
+                              </span>
+                           </span>
+                     </div>
+                      <div class="form-group">
+                        <label for="desc" id="lbl_3">Desc</label>
+                         <input id="desc" type="text" size="8" name="desc" required  class="form-control">
+                      </div>
+                      <div class="form-group">
+                         <input type="button" value="CANCEL" class="btn btn-danger" id="cancel"onclick="hideForm()">
+                      </div>
+            </form>
+          </div>
+         <div id="main"  class="form-group form-inline">
+          <input type="text" id="toSelect" class="form-control">
+          <input type="button" value="Search" id="search" onclick="getAppointments();" class="form-control btn btn-info">
+    	 </div>
+          <div >
+            <table id="mytbl" class="table table-bordered">
+            </table>
+
+
+         </div>
+	 </div>
+   <script type="text/javascript">
+            $('#timepicker1').timepicker();
+        </script>
+   </BODY>
+</HTML>
+<script type="text/javascript" src="public/Appointment.js"></script>
